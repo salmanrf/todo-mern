@@ -1,0 +1,129 @@
+@media screen and (min-width: 480px) {
+  .todo-mark-complete {
+    justify-self: center;
+  }
+
+  .todo-info {
+    grid-column: 2 / 11;
+  }
+
+  .todo-action {
+    grid-column: 11 / 13;
+  }
+
+  .collection-form {
+    width: 480px;
+  }
+  
+}
+
+@media screen and (min-width: 720px) {
+  .header {
+    padding: 0 25px;
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .hamburger-menu {
+    display: none;
+  }
+
+  .user-action {
+    grid-column: 12 / 13;
+    justify-self: end;
+  }
+
+  main {
+    display: flex;
+  }
+
+  .sidebar {
+    position: static;   
+    flex-basis: 25%;
+    max-width: 25%;
+  }
+
+  #todo-board {
+    flex-basis: 75%;
+    display: flex;
+    align-items: center;
+  }
+
+  .collection-container {
+    width: 90%;
+  }
+
+  .collection-control {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .new-todo {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translateX(0%);
+  }
+
+  .new-todo:hover {
+    top: -5px;
+    color: white;
+  }
+
+  .new-todo svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  .new-todo > span {
+    display: block;
+  }
+
+  .todo-main {
+    min-height: 70px;
+  }
+
+  .todo-title {
+    font-size: 18px;
+  }
+
+  .todo-duedate {
+    font-size: 14px;
+  }
+
+  .todo-description {
+    font-size: 14px;
+  }
+
+  .action-icon {
+    width: 25px;
+    height: 25px;
+  }
+
+  .todo input[name="title"] {
+    font-size: 16px;
+  }
+  
+  .todo input[name="duedate"] {
+    font-size: 14px;
+  }
+  
+  .todo textarea {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .collection-container {
+    width: 70%;
+  }
+
+  .todo-info {
+    grid-column: 2 / 11;
+  }
+
+  .todo-action {
+    grid-column: 12 / 13;
+  }
+}

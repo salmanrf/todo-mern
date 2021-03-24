@@ -1,0 +1,515 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a, a:visited, a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+html {
+  min-height: 100vh;
+  
+}
+
+body {
+  height: 100vh;
+  min-height: 100vh;
+  font-family: 'Raleway', sans-serif;
+  background: hsl(240, 14%, 11%);
+  /* display: flex; */
+}
+
+#root {
+  height: 100%;
+}
+
+.app {
+  position: relative;
+  height: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: hsl(0, 0%, 0%, 70%);
+}
+
+.header {
+  height: 70px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  background: hsl(240, 13%, 15%);
+  box-shadow: 0 0 7px 0px #000;
+  z-index: 15;
+}
+
+.hamburger-menu {
+  width: 35px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.hamburger-menu > div {
+  height: 3px;
+  background: white;
+}
+
+.user-action {
+  cursor: pointer;
+}
+
+.user-action a, .user-action span {
+  color: hsl(0, 0%, 90%);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.user-action span {
+  color: hsl(0, 0%, 100%);
+}
+
+.user-action a:visited {
+  color: hsl(0, 0%, 90%);
+  text-decoration: none;
+}
+
+.user-action a:hover {
+  color: hsl(0, 0%, 100%);
+}
+
+main {
+  position: relative;
+  flex-basis: 100%;
+}
+
+.sidebar {
+  height: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  padding-top: 30px;
+  background: hsl(240, 13%, 15%);
+  transition: left 150ms ease-in-out;
+  z-index: 10;
+}
+
+.sidebar-item {
+  width: 100%;
+  display: block;
+  padding: 12px 15px;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  transition: background 250ms ease-in-out;
+}
+
+.sidebar-item a {
+  width: 100%;
+}
+
+.sidebar-item:hover {
+  background: hsl(240, 12%, 17%);
+}
+
+.sidebar-active {
+  background: hsl(240, 12%, 17%);
+}
+
+.collection-list-container {
+  width: 100%;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  transition: background 250ms ease-in-out;
+}
+
+.collection-list-title {
+  display: flex;
+  align-items: center;
+}
+
+.collection-list-title svg {
+  width: 20px;
+  height: 20px;
+  transform: rotate(0deg);
+  transition: transform 250ms ease-in-out;
+}
+
+.collection-list-container span {
+  display: block;
+  padding: 12px 15px;
+}
+
+.collection-list {
+  height: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: all 150ms ease-in-out;
+}
+
+.collection-link {
+  width: 100%;
+  height: 40px;
+  padding: 12px;
+  font-size: 14px;
+}
+
+.collection-link div {  
+  width: 90%;
+  padding-left: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.collection-link:hover {
+  background: hsl(240, 12%, 17%);
+}
+
+.new-collection {
+  width: 100%;
+  height: 40px;
+  padding: 12px;
+  padding-left: 30px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.new-collection svg {
+  width: 20px;
+  height: 20px;
+  color: hsl(327, 82%, 74%);
+}
+
+.new-collection:hover {
+  background: hsl(240, 12%, 17%);
+}
+
+.collection-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100%;  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 5px 0px #000;
+}
+
+.collection-form-header {
+  width: 100%;
+  padding: 20px;
+  background: hsl(240, 12%, 17%);
+}
+
+.collection-form form {
+  width: 100%;
+  padding: 20px 50px;
+  display: flex;
+  flex-direction: column;
+  background: hsl(240, 13%, 15%);
+}
+
+.collection-form label {
+  font-size: 14px;
+}
+
+.collection-form input {
+  width: 100%;
+  height: 30px;
+  margin-top: 10px;
+  padding: 6px 12px;
+  font-size: 14px;
+  border: 1px solid hsl(193, 95%, 40%);
+  border-radius: 10px;
+  color: hsl(0, 0%, 90%);
+  background: hsl(240, 14%, 20%);
+  outline: none;
+}
+
+.collection-form input:hover, .collection-form input:focus {
+  border: 1px solid hsl(193, 95%, 68%);
+}
+
+.collection-form input[disabled] {
+  border: 1px solid hsl(0, 0%, 100%, 70);
+}
+
+.submit-collection {
+  align-self: flex-end;
+  position: relative;
+  top: 0;
+  width: 100px;
+  /* height: 50px; */
+  margin-top: 10px;
+  padding: 5px;
+  color: white;
+  font-size: 14px;
+  font-family: 'Roboto', sans-serif;
+  border: 1px solid hsl(193, 95%, 68%);
+  border-radius: 10px;
+  background: hsl(240, 14%, 15%);
+  cursor: pointer;
+  transition: all 150ms ease-in-out;
+}
+
+.submit-collection:hover {
+  top: -3px;
+  background: hsl(240, 14%, 11%);
+}
+
+#todo-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.collection-container {
+  width: 100%;
+  padding: 0 15px;
+}
+
+.collection-header {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.collection-info {
+  display: flex;
+  align-items: center;
+}
+
+.collection-title {
+  margin-right: 10px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.collection-date {
+  font-size: 14px;
+}
+
+.collection-control {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.new-todo {
+  position: fixed;
+  left: 50%;
+  bottom: 10px;
+  display: flex;
+  align-items: center;
+  color: hsl(0, 0%, 90%);
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  transform: translateX(-50%);
+  cursor: pointer;
+  transition: all 175ms ease-in-out;
+}
+
+.new-todo svg {
+  width: 35px;
+  height: 35px;
+  margin-right: 6px;
+  color: hsl(327, 82%, 74%);
+}
+
+.new-todo > span {
+  display: none;
+}
+
+.todo-list {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.todo {
+  position: relative;
+  margin-bottom: 15px;
+  box-shadow: 0 0 5px 0px #000;
+  transform: scale(20%);
+  transition: transform 250ms ease-in-out;
+}
+
+.todo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: hsl(0, 0%, 0%, 70%);
+}
+
+.todo-main {
+  min-height: 60px;
+  padding: 0 10px;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-items: center;
+  background: hsl(240, 12%, 17%);
+}
+
+.todo-mark-complete {
+  /* position: relative; */
+  grid-column: 1 / 2;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid hsl(193, 95%, 68%, 50%);
+  border-radius: 5px;
+  background: hsl(240, 13%, 15%);
+  transition: border 150ms ease-in-out;
+  cursor: pointer;
+}
+
+.todo-mark-complete svg {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  fill: hsl(327, 82%, 64%);
+}
+
+.todo-mark-complete:hover {
+  border: 1px solid hsl(193, 95%, 68%, 100%);
+}
+
+.todo-info {
+  grid-column: 2 / 10;
+  align-self: center;
+  margin: 0 5px;
+  font-family: 'Roboto', sans-serif;
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+}
+
+.todo-title {
+  font-size: 14px;
+}
+
+.todo-duedate {
+  margin-top: 5px;
+  font-size: 11px;
+}
+
+/* .arrow-icon {
+  grid-column: 6 / 7;
+  justify-self: end;
+  width: 30px;
+  height: 25px;
+} */
+
+.arrow-icon > svg {
+  width: 100%;
+  height: 100%;
+  /* stroke: hsl(0, 0%, 90%); */
+  fill: hsl(0, 0%, 90%);
+  /* color: hsl(0, 0%, 90%); */
+}
+
+.todo-action {
+  grid-column: 10 / 13;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+}
+
+.action-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+}
+
+.action-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: hsl(327, 82%, 64%);
+  cursor: pointer;
+}
+
+.action-icon svg:hover {
+  fill: hsl(327, 82%, 74%);
+}
+
+.todo-description {
+  height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-size: 12px;
+  background: hsl(240, 13%, 15%);
+  transition: height 150ms ease-in-out;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.todo-description > p {
+  width: 95%;
+  height: 90%;
+  margin: 12px;
+  padding: 20px 0;
+}
+
+.todo-edit-form {
+  width: 100%;
+  margin: 5px 0;
+  color: hsl(0, 0%, 80%);
+  border: 1px solid hsl(193, 95%, 68%, 50%);
+  border-radius: 5px;
+  outline: none;
+  background: hsl(240, 14%, 20%);
+}
+
+.todo input[name="title"] {
+  padding: 5px;
+  font-size: 14px;
+}
+
+.todo input[name="duedate"] {
+  padding: 5px;
+  font-size: 12px;
+}
+
+.todo textarea {
+  width: 95%;
+  height: 90%;
+  padding: 5px;
+  font-size: 12px;
+  resize: none;
+}
+
