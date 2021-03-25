@@ -1,5 +1,7 @@
 const jwt = require("jsonwebtoken");
 
+require("dotenv").config();
+
 exports.get_refresh = async (req, res, next) => {
   if(!req.cookies) 
     return res.sendStatus(401);
@@ -18,7 +20,7 @@ exports.get_refresh = async (req, res, next) => {
   }
 }
 
-generateAccessToken = (payload) => {
+const generateAccessToken = (payload) => {
   return new Promise((resolve, reject) => {
     jwt.sign({user: payload}, process.env.ACCESS_TOKEN_SECRET, {expiresIn: "15m"},
       (err, token) => {

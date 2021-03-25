@@ -1,3 +1,4 @@
+/* eslint-disable */
 import {useState, useEffect, useContext} from "react";
 import {RiEditBoxLine, RiDeleteBin4Line} from "react-icons/ri";
 import {AiOutlineSave} from "react-icons/ai";
@@ -23,8 +24,6 @@ const Todo = (props) => {
   const [showDesc, setShowDesc] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
-  console.log(todo);
-
   async function handleUpdate() {
     setIsFetching(true);  
 
@@ -39,6 +38,10 @@ const Todo = (props) => {
       const result = await response.json();
 
       setTodo({...result.todo, new: false});
+    }else {
+      if(todo.new) {
+        handleDelete(todo._id);
+      }
     }
 
     setIsFetching(false);
@@ -52,7 +55,6 @@ const Todo = (props) => {
       const result = await response.json();
       
       setTodo({...result.todo, new: false});
-      console.log(todo);
     }
 
     setIsFetching(false);

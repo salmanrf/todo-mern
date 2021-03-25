@@ -1,11 +1,11 @@
+/* eslint-disable */
 import {useState} from "react";
 import {Link, useHistory} from "react-router-dom";
 import {postSignin} from "../helper/auth_api";
-import loading_gif from "../assets/images/loading.gif";
 import "../css/signin_signup.css";
 
 const Signin = (props) => {
-  let history = useHistory();
+  const history = useHistory();
   const [loading, setLoading] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");

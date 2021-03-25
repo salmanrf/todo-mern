@@ -1,3 +1,4 @@
+/* eslint-disable */
 import {useState, useEffect, useContext} from "react";
 import {useParams} from "react-router-dom";
 import {v4 as uuidv4} from "uuid";
@@ -33,7 +34,7 @@ const CollectionContainer = () => {
     .then((collection) => {
       setCollection(collection);
       setTodos(collection.todos);
-      document.title = collection.title || collection.name;
+      document.title = `Dashboard: ${collection.title || collection.name}`;
     })
     .catch(() => setTodos([]));
   }, [params]);
@@ -74,7 +75,6 @@ const CollectionHeader = (props) => {
           <CgAddR />
           <span>Add Todo</span>
         </div>
-        <div className="collection-sort">Sort by: Priority</div>
       </div>
     </div>
   );

@@ -1,7 +1,8 @@
+/* eslint-disable */
 import {useState, useContext, useEffect} from "react";
-import {Link, NavLink, Route, useRouteMatch, useParams, Switch, Redirect} from "react-router-dom";
+import {Link, NavLink, Route, useRouteMatch, Switch} from "react-router-dom";
 import {MdKeyboardArrowRight} from "react-icons/md";
-import {CgAddR, CgWindows} from "react-icons/cg";
+import {CgAddR} from "react-icons/cg";
 
 import {UserContext, TokenContext} from "../context_store";
 import {postNewCollection, getCollectionsAll} from "../helper/todo_api";
@@ -9,8 +10,7 @@ import {postNewCollection, getCollectionsAll} from "../helper/todo_api";
 import Hamburger from "../components/hamburger_menu";
 import TodoBoard from "../components/todo_board";
 
-const Dashboard = (props) => {
-  const user = useContext(UserContext);
+const Dashboard = () => {
   const {path, url} = useRouteMatch();
   const [showSidebar, setShowSidebar] = useState(false);
 
@@ -67,7 +67,7 @@ const Sidebar = (props) => {
   );
 }
 
-const CollectionList = (props) => {
+const CollectionList = () => {
   const {path} = useRouteMatch();
   const token = useContext(TokenContext);
   const [collections, setCollections] = useState([]);
@@ -116,33 +116,18 @@ const CollectionList = (props) => {
 const CollectionForm = (props) => {
   const token = useContext(TokenContext);
   const [name, setName] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [validation, setValidation] = useState("");
 
   async function handleSubmit(event) {
     event.preventDefault();
 
-    setLoading(true);
-
     const response = await postNewCollection(name, token);
 
-    if(response && response.status === 400) {
-      const result = await response.json();
-      const errors = result.errors;
-
-      setValidation(errors.name && errors.name.msg);
-      setLoading(false);
-    }else if(response && response.status === 201) {
+    if(response && response.status === 201) {
       const newCollection = await response.json();
 
-      console.log(newCollection);
-
-      props.updateCollections([...props.collections, newCollection]);
-      
-      setValidation("");
-      setLoading(false);
-      props.toggleForm(false);
+      props.updateCollections([...props.collections, newCollection]);  
     }
+    props.toggleForm(false);
   }
   
   return (

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {useState, useEffect} from "react";
 import {
   Switch,
@@ -20,13 +21,11 @@ import {getRefreshToken} from "./helper/auth_api";
 
 const App = () => {
   let history = useHistory();
-  const [isMounted, setIsMounted] = useState(false);
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
 
   useEffect(() => {
-    setIsMounted(true);
     // JWT is stored in-memory, so when application initially loads
     // send a request with refresh token in httpOnly cookie for new token 
     getRefreshToken()

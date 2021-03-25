@@ -1,4 +1,5 @@
-import {useState, useEffect} from "react";
+/* eslint-disable */
+import {useState} from "react";
 import {Link, useHistory} from "react-router-dom";
 import {postSignup} from "../helper/auth_api";
 import "../css/signin_signup.css";
@@ -26,8 +27,6 @@ const Signup = () => {
         password: autherrors.password && autherrors.password.msg
       });
     } else if(response && response.status === 201) {
-      const result = await response.json();
-      
       setValidation({
         username: "",
         password: "",

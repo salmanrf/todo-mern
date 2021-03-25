@@ -1,3 +1,4 @@
+/* eslint-disable */
 import {useEffect} from "react";
 import {Redirect} from "react-router-dom";
 
