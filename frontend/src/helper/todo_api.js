@@ -1,6 +1,6 @@
 export const getTodos = async (collectionName, token) => {
   try {
-    const response = await fetch(`http://127.0.0.1:8080/api/todo/${collectionName || ""}`,
+    const response = await fetch(`https://immense-garden-08969.herokuapp.com/api/todo/${collectionName || ""}`,
      {
       headers: {
         "Authorization": `Bearer ${token}`,
@@ -15,7 +15,7 @@ export const getTodos = async (collectionName, token) => {
 
 export const createTodo = async (todo, collectionId, token) => {
   try {
-    const response = await fetch(`http://127.0.0.1:8080/api/todo/?collectionId=${collectionId || ""}`, {
+    const response = await fetch(`https://immense-garden-08969.herokuapp.com/api/todo/?collectionId=${collectionId || ""}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -32,7 +32,7 @@ export const createTodo = async (todo, collectionId, token) => {
 
 export const updateTodo = async (todoId, todo, token) => {
   try {
-    const response = await fetch(`http://127.0.0.1:8080/api/todo/${todoId}`, {
+    const response = await fetch(`https://immense-garden-08969.herokuapp.com/api/todo/${todoId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -49,7 +49,7 @@ export const updateTodo = async (todoId, todo, token) => {
 
 export const deleteTodo = async (todoId, token) => {
   try {
-    const response = await fetch(`http://127.0.0.1:8080/api/todo/${todoId}`, {
+    const response = await fetch(`https://immense-garden-08969.herokuapp.com/api/todo/${todoId}`, {
       method: "DELETE",
       headers: {
         "Authorization": `Bearer ${token}`
@@ -64,7 +64,7 @@ export const deleteTodo = async (todoId, token) => {
 
 export const getCollectionsAll = async (token) => {
   try {
-    const response = await fetch("http://127.0.0.1:8080/api/todo/collection", {
+    const response = await fetch("https://immense-garden-08969.herokuapp.com/api/todo/collection", {
       headers: {
         "Authorization": `Bearer ${token}`
       },
@@ -78,7 +78,7 @@ export const getCollectionsAll = async (token) => {
 
 export const postNewCollection = async (name, token) => {
   try {
-    const response = await fetch("http://127.0.0.1:8080/api/todo/collection/", {
+    const response = await fetch("https://immense-garden-08969.herokuapp.com/api/todo/collection/", {
       method: "POST",
       headers: {
         "Authorization": `Bearer ${token}`,

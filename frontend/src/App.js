@@ -84,11 +84,11 @@ const App = () => {
               <Signout setToken={setToken} />
             </Route>
             <Route path="/dashboard">
-              {user ?
-                <Dashboard />
+              {loading ?
+                null
                 :
-                (loading ? 
-                  null
+                (user ?
+                  <Dashboard /> 
                   :
                   <Redirect to="/signin"/>
                 )

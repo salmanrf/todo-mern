@@ -3,7 +3,7 @@ export const postSignin = async (event) => {
   const user = {username: body.get("username"), password: body.get("password")};
 
   try {
-    const response = await fetch("http://127.0.0.1:8080/api/auth/signin", {
+    const response = await fetch("https://immense-garden-08969.herokuapp.com/api/auth/signin", {
       method: "POST",
       credentials: "include",
       headers: {
@@ -25,7 +25,7 @@ export const postSignup = async (event) => {
   const user = {username: body.get("username"), password: body.get("password")};
 
   try {
-    const response = await fetch("http://127.0.0.1:8080/api/auth/signup", {
+    const response = await fetch("https://immense-garden-08969.herokuapp.com/api/auth/signup", {
       method: "POST",
       mode: "cors",
       headers: {
@@ -43,7 +43,7 @@ export const postSignup = async (event) => {
 
 export const getSignout = async () => {
   try {
-    const response = await fetch("http://127.0.0.1:8080/api/auth/signout", {credentials: "include"});
+    const response = await fetch("https://immense-garden-08969.herokuapp.com/api/auth/signout", {credentials: "include"});
 
     return response;
 
@@ -54,7 +54,7 @@ export const getSignout = async () => {
 
 export const getRefreshToken = async () => {
   try {
-    const response = await fetch("http://127.0.0.1:8080/api/token", {
+    const response = await fetch("https://immense-garden-08969.herokuapp.com/api/token", {
       credentials: "include",
       headers: {
         "Content-Type": "application/json"
